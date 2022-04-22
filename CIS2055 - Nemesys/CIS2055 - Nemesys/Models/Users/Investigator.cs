@@ -8,13 +8,13 @@ namespace CIS2055___Nemesys.Models.Users
     {
         public List<string> IRN;
 
-        public void AddRRN(string irn)
+        public void AddIRN(string irn)
         {
             IRN.Add(irn);
         }
 
-        public void RemoveRRN(string irn)
-        {
+        public void RemoveIRN(string irn) {
+        
             IRN.Remove(irn);
         }
     }

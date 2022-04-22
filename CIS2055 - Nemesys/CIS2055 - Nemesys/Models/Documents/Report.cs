@@ -21,7 +21,8 @@ namespace CIS2055___Nemesys.Models.Documents
 
         private int upvotes { get; set; }
 
-        public static List<string> General_RRN;
+        // General List of reports (RRN):
+        public static List<string> General_RRN;  
 
         public Random Random;
 

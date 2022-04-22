@@ -26,11 +26,22 @@ namespace CIS2055___Nemesys.Models.Documents
 
         public Random Random;
 
-        public Report()
+        public Report(string location,
+                      HazardType h_type,
+                      string description,
+                      string email,
+                      Status status)
         {
             Random = new Random();
             // generate RRN
-            Generate_RRN();
+            this.RRN = Generate_RRN();
+            this.DateAndTimeOfReport = DateTime.Now.ToString();
+
+            this.Location = location;
+            this._hazardType = h_type;
+            this.Desc = description;
+            this.Reporter_Email = email;
+            this._status = status;
         }
 
 

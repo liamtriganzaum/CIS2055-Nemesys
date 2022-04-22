@@ -33,13 +33,14 @@ namespace CIS2055___Nemesys.Models.Documents
         }
 
 
-        private void Generate_RRN()
+        private string Generate_RRN()
         {
             int RandomNumber = Random.Next(RAND_MIN, RAND_MAX);
             while (General_RRN.Contains(RandomNumber.ToString()))
             {
                 RandomNumber = Random.Next(RAND_MIN, RAND_MAX);
             }
+            return RandomNumber.ToString();
         }
     }
 }

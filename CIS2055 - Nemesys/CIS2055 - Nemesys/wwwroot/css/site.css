@@ -24,6 +24,7 @@ a {
   border-color: #1861ac;
 }
 
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -49,6 +50,11 @@ html {
 button.accept-policy {
   font-size: 1rem;
   line-height: inherit;
+}
+
+
+.text-center .display-4 {
+  text-transform: lowercase;
 }
 
 /* Sticky footer styles

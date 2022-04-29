@@ -1,16 +1,9 @@
 using System;
-using System.Collections.Generic;
 
 namespace CIS2055___Nemesys.Models.Documents
 {
-    public class Report
+    public class Report : Document
     {
-        // todo put these constants outisde of the class scope 
-        public const int RAND_MIN = 0;
-        public const int RAND_MAX = 10;
-        
-        // report reference number
-        private string RRN { get; set; }
         private string DateAndTimeOfReport { get; set; }
 
         private string Location { get; set; }
@@ -21,11 +14,6 @@ namespace CIS2055___Nemesys.Models.Documents
 
         private int upvotes { get; set; }
 
-        // General List of reports (RRN):
-        public static List<string> General_RRN;  
-
-        public Random Random;
-
         public Report(string location,
                       HazardType h_type,
                       string description,
@@ -34,7 +22,7 @@ namespace CIS2055___Nemesys.Models.Documents
         {
             Random = new Random();
             // generate RRN
-            this.RRN = Generate_RRN();
+            this.RN = Generate_RN();
             this.DateAndTimeOfReport = DateTime.Now.ToString();
 
             this.Location = location;
@@ -44,15 +32,6 @@ namespace CIS2055___Nemesys.Models.Documents
             this._status = status;
         }
 
-
-        private string Generate_RRN()
-        {
-            int RandomNumber = Random.Next(RAND_MIN, RAND_MAX);
-            while (General_RRN.Contains(RandomNumber.ToString()))
-            {
-                RandomNumber = Random.Next(RAND_MIN, RAND_MAX);
-            }
-            return RandomNumber.ToString();
-        }
+        
     }
 }

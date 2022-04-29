@@ -38,12 +38,12 @@ namespace CIS2055___Nemesys.Models.Repositories
         }
         
         // todo this method has to return IEnumerable<Report> 
-        public IEnumerable<Document> GetAllDocuments()
+        public IEnumerable<Report> GetAllReports()
         {
             return _reports;
         }
 
-        public Document GetDocumentByRN(int DocumentRN)
+        public Report GetDocumentByRN(int RRN)
         {
             return null;
         }

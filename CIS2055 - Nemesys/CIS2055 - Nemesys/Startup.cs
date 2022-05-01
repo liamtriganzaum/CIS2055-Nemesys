@@ -53,7 +53,7 @@ namespace CIS2055___Nemesys
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Reports}/{action=Reports}/{id?}");
             });
         }
     }

@@ -41,9 +41,7 @@ namespace CIS2055___Nemesys
             }
             //app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

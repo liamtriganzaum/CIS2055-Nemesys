@@ -33,6 +33,7 @@ namespace CIS2055___Nemesys.Models.Documents
                       Status status)
         {
             Random = new Random();
+            General_RRN = new List<string>();
             // generate RRN
             this.RRN = Generate_RRN();
             this.DateAndTimeOfReport = DateTime.Now.ToString();

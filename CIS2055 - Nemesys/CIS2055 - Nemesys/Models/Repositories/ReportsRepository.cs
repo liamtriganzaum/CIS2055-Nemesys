@@ -17,23 +17,24 @@ namespace CIS2055___Nemesys.Models.Repositories
 
         private void InitializeReports()
         {
+            System.Console.WriteLine("Initialising");
             _reports = new List<Report>()
             {
                 new Report(location:"Malta",
+                           h_type: HazardType.UnsafeAct, 
+                           description:"desctiption: hazardous",
+                           email:"email@mail.com",
+                           status:Status.Open),
+                new Report(location:"Tallin",
                            h_type: HazardType.UnsafeAct, 
                            description:"desctiption: ok",
                            email:"email@mail.com",
                            status:Status.Open),
                 new Report(location:"Malta",
-                    h_type: HazardType.UnsafeAct, 
-                    description:"desctiption: ok",
-                    email:"email@mail.com",
-                    status:Status.Open),
-                new Report(location:"Malta",
-                    h_type: HazardType.UnsafeAct, 
-                    description:"desctiption: ok",
-                    email:"email@mail.com",
-                    status:Status.Open)
+                           h_type: HazardType.UnsafeAct, 
+                           description:"desctiption: super",
+                           email:"email@mail.com",
+                           status:Status.Open)
             };
         }
         

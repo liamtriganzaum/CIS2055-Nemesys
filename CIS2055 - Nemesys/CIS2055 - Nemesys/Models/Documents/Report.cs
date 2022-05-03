@@ -10,12 +10,17 @@ namespace CIS2055___Nemesys.Models.Documents
         public const int RAND_MAX = 10;
         
         // report reference number
-        private string RRN { get; set; }
+        private string rrn;
+        public string RRN{ get; set; }
         private string DateAndTimeOfReport { get; set; }
 
-        private string Location { get; set; }
+        private string location;
+        public string Location { get; set; }
+        
         private HazardType _hazardType;
-        private string Desc { get; set; }
+        
+        private string desc;
+        public string Desc { get; set; }
         private string Reporter_Email { get; set; }
         private Status _status;
 

@@ -75,3 +75,18 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+
+/* Reports styles
+-------------------------------------------------- */
+
+.reports_list {
+  list-style: none;
+}
+
+.reports_list_item {
+  border: dashed;
+}
+
+
+

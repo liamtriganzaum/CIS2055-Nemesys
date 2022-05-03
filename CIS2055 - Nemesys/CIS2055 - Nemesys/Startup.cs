@@ -28,7 +28,7 @@ namespace CIS2055___Nemesys
             
             // todo Ask Porter about these lines
             services.AddTransient<ReportsRepository, ReportsRepository>();
-            services.AddTransient<InvestigationRepository, InvestigationRepository>();
+            services.AddTransient<InvestigationsRepository, InvestigationsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

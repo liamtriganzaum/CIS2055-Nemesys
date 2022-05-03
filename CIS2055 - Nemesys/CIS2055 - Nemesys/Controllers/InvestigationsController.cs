@@ -12,9 +12,9 @@ namespace CIS2055___Nemesys.Controllers
 {
     public class InvestigationsController : Controller
     {
-        private readonly InvestigationRepository _investigationRepository;
+        private readonly InvestigationsRepository _investigationRepository;
 
-        public InvestigationsController(InvestigationRepository reportsRepository)
+        public InvestigationsController(InvestigationsRepository reportsRepository)
         {
             _investigationRepository = reportsRepository;
         }

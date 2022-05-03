@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/home/max-ubuntu/Programming/RiderProjects/CIS2055-Nemesys/CIS2055 - Nemesys/CIS2055 - Nemesys/CIS2055 - Nemesys.csproj": {}
+    "C:\\Users\\liamt\\OneDrive\\Documents\\GitHub\\CIS2055-Nemesys\\CIS2055-Nemesys\\CIS2055 - Nemesys\\CIS2055 - Nemesys\\CIS2055 - Nemesys.csproj": {}
   },
   "projects": {
-    "/home/max-ubuntu/Programming/RiderProjects/CIS2055-Nemesys/CIS2055 - Nemesys/CIS2055 - Nemesys/CIS2055 - Nemesys.csproj": {
+    "C:\\Users\\liamt\\OneDrive\\Documents\\GitHub\\CIS2055-Nemesys\\CIS2055-Nemesys\\CIS2055 - Nemesys\\CIS2055 - Nemesys\\CIS2055 - Nemesys.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/max-ubuntu/Programming/RiderProjects/CIS2055-Nemesys/CIS2055 - Nemesys/CIS2055 - Nemesys/CIS2055 - Nemesys.csproj",
+        "projectUniqueName": "C:\\Users\\liamt\\OneDrive\\Documents\\GitHub\\CIS2055-Nemesys\\CIS2055-Nemesys\\CIS2055 - Nemesys\\CIS2055 - Nemesys\\CIS2055 - Nemesys.csproj",
         "projectName": "CIS2055 - Nemesys",
-        "projectPath": "/home/max-ubuntu/Programming/RiderProjects/CIS2055-Nemesys/CIS2055 - Nemesys/CIS2055 - Nemesys/CIS2055 - Nemesys.csproj",
-        "packagesPath": "/home/max-ubuntu/.nuget/packages/",
-        "outputPath": "/home/max-ubuntu/Programming/RiderProjects/CIS2055-Nemesys/CIS2055 - Nemesys/CIS2055 - Nemesys/obj/",
+        "projectPath": "C:\\Users\\liamt\\OneDrive\\Documents\\GitHub\\CIS2055-Nemesys\\CIS2055-Nemesys\\CIS2055 - Nemesys\\CIS2055 - Nemesys\\CIS2055 - Nemesys.csproj",
+        "packagesPath": "C:\\Users\\liamt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\liamt\\OneDrive\\Documents\\GitHub\\CIS2055-Nemesys\\CIS2055-Nemesys\\CIS2055 - Nemesys\\CIS2055 - Nemesys\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/max-ubuntu/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\liamt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,7 +57,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
         }
       }
     }

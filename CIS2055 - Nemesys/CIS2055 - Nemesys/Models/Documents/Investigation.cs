@@ -21,21 +21,30 @@ namespace CIS2055___Nemesys.Models.Documents
 
         public Random Random;
 
-        public Investigation()
+        public Investigation(string description,
+                      string email,
+                      Status status)
         {
             Random = new Random();
+            General_IRN = new List<string>();
             // generate IRN
-            Generate_IRN();
+            this.IRN = Generate_IRN();
+            this.DateOfAction = DateTime.Now.ToString();
+
+            this.Desc = description;
+            this.Investigator_Email = email;
+            this._status = status;
         }
 
 
-        private void Generate_IRN()
+        private string Generate_IRN()
         {
             int RandomNumber = Random.Next(RAND_MIN, RAND_MAX);
             while (General_IRN.Contains(RandomNumber.ToString()))
             {
                 RandomNumber = Random.Next(RAND_MIN, RAND_MAX);
             }
+            return RandomNumber.ToString();
         }
     }
 }

@@ -1,0 +1,20 @@
+﻿@model IEnumerable<CIS2055___Nemesys.Models.Documents.Report>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="reports_container">
+    <ul class="reports_list">
+        
+    @foreach (var report in Model)
+    {
+        <li class="reports_list_item">
+            <h3>@report.RRN</h3>
+            <h3>@report.Location</h3>
+            <h3>@report.Desc</h3>
+        </li>
+    }
+    
+    </ul>
+</div>

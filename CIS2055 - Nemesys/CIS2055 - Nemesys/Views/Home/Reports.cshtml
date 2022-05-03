@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Reports";
+}
+@* <h1>@ViewData["Title"]</h1> *@
+
+<h2>Nemesys reports</h2>
+
+<form action="">
+    <input name="location" type="text" placeholder="location">
+    
+    <select name="HazardType" id="HazardType">
+        <option value="UnsafeAct">UnsafeAct</option>
+        <option value="Condition">Condition</option>
+        <option value="Equipment">Equipment</option>
+        <option value="Structure">Structure</option>
+    </select>
+    
+    <textarea rows="4">Description</textarea>
+    
+    <input name="location" type="email" placeholder="email">
+    
+    <select name="ReportStatus" id="ReportStatus">
+        <option value="Open">Open</option>
+        <option value="CLosed">CLosed</option>
+        <option value="BeingInvestigated">BeingInvestigated</option>
+        <option value="NoAction">NoAction</option>
+    </select>
+    
+    <input type="submit">
+</form>

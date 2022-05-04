@@ -17,7 +17,6 @@ namespace CIS2055___Nemesys.Models.Repositories
 
         private void InitializeReports()
         {
-            System.Console.WriteLine("Initialising");
             _reports = new List<Report>()
             {
                 new Report(location:"Malta",

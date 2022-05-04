@@ -30,6 +30,21 @@ namespace CIS2055___Nemesys.Controllers
             return View(model);
         }
 
+        
+        public IActionResult ReportForm()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public IActionResult AddNewReport()
+        {
+            ViewData["loc"] = HttpContext.Request.Form["Location"];
+            ViewData["desc"] = HttpContext.Request.Form["Desc"];
+            ViewData["email"] = HttpContext.Request.Form["Reporter_Email"];
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

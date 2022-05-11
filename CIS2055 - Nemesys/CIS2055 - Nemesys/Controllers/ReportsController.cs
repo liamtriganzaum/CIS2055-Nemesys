@@ -6,7 +6,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using CIS2055___Nemesys.Models.Documents;
 using CIS2055___Nemesys.Models.Repositories;
+using CIS2055___Nemesys.ViewModels;
 
 namespace CIS2055___Nemesys.Controllers
 {
@@ -21,7 +23,23 @@ namespace CIS2055___Nemesys.Controllers
         
         public IActionResult Index()
         {
-            return View();
+            var model = new ReportListViewModel()
+            {
+                TotalEntries = _reportsRepository.GetAllReports().Count(),
+                Reports = _reportsRepository
+                    .GetAllReports()
+                    .OrderByDescending(b => b.DateAndTimeOfReport)
+                    .Select(b => new ReportViewModel
+                    {
+                        RRN = b.RRN,
+                        DateAndTimeOfReport = b.DateAndTimeOfReport,
+                        Desc = b.Desc,
+                        Location = b.Location,
+                        Title = b.Title
+                    })
+            };
+
+            return View(model);
         }
 
         public IActionResult Reports()

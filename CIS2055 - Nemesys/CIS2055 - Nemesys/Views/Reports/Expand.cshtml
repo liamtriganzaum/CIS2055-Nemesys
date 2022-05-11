@@ -1,0 +1,13 @@
+@model CIS2055___Nemesys.ViewModels.ReportViewModel
+<h1>@Model.Title</h1>
+
+<div>
+    <p>@Model.DateAndTimeOfReport</p>
+    <p>@Model.Location</p>
+    <p>@Model._status</p>
+    <p>@Model.Desc</p>
+    <p>@Model._hazardType</p>
+    
+    <a asp-controller="Reports" asp-action="Edit" asp-route-rrn="@Model.RRN">Edit report</a>
+</div>
+

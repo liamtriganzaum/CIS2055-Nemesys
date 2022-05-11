@@ -56,11 +56,24 @@ namespace CIS2055___Nemesys.Controllers
         }
         
         [HttpPost]
-        public IActionResult AddNewReport()
+        public IActionResult Create([Bind("Title, Location, _hazardType, Desc, ReporterEmail, status")] EditReportViewModel newReport)
         {
-            ViewData["loc"] = HttpContext.Request.Form["Location"];
-            ViewData["desc"] = HttpContext.Request.Form["Desc"];
-            ViewData["email"] = HttpContext.Request.Form["Reporter_Email"];
+            if (ModelState.IsValid)
+            {
+                Report report = new Report()
+                {
+                    Title = newReport.Title,
+                    Location = newReport.Location,
+                    _hazardType = newReport._hazardType,
+                    Desc = newReport.Desc,
+                    Reporter_Email = newReport.Reporter_Email,
+                    _status = newReport._status
+                };
+
+                _reportsRepository.CreateReport(report);
+                return RedirectToAction("Index");
+            }
+            
             return View();
         }
 

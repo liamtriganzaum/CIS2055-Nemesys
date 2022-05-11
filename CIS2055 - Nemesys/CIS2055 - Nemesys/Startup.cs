@@ -26,6 +26,10 @@ namespace CIS2055___Nemesys
         {
             services.AddControllersWithViews();
             
+            // Database connection
+            services.AddDbContext<AppDbContext>(options => 
+                options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
+                
             // todo Ask Porter about these lines
             services.AddTransient<ReportsRepository, ReportsRepository>();
             services.AddTransient<InvestigationsRepository, InvestigationsRepository>();

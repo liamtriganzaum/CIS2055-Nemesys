@@ -18,13 +18,13 @@ namespace CIS2055___Nemesys.Models.Documents
         public string Title { get; set; }
         public string Location { get; set; }
         
-        public  HazardType _hazardType;
+        public HazardType _hazardType;
         
         public string Desc { get; set; }
         public  string Reporter_Email { get; set; }
         public  Status _status;
 
-        public  int upvotes { get; set; }
+        public int upvotes { get; set; }
 
         // General List of reports (RRN):
         public static List<string> General_RRN;  

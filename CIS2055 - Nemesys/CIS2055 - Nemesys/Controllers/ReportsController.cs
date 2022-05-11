@@ -48,8 +48,9 @@ namespace CIS2055___Nemesys.Controllers
             return View(model);
         }
 
-        
-        public IActionResult ReportForm()
+       
+        [HttpGet]
+        public IActionResult Create()
         {
             return View();
         }

@@ -8,6 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
+
+using CIS2055___Nemesys.Models;
 using CIS2055___Nemesys.Models.Repositories;
 
 namespace CIS2055___Nemesys

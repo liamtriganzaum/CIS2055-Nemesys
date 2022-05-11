@@ -10,13 +10,16 @@
     @foreach (var report in Model)
     {
         <li class="reports_list_item">
-            <h3>@report.RRN</h3>
+            <h3>@report.Title</h3>
+            <h3>@report._status</h3>
             <h3>@report.Location</h3>
             <h3>@report.Desc</h3>
+            
+            <a asp-controller="Reports" asp-action="Expand" asp-route-rrn="@report.RRN">Expand</a>
         </li>
     }
     
     </ul>
     
-    <a class="nav-link text-dark" asp-area="" asp-controller="Reports" asp-action="ReportForm">Add new report</a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="Reports" asp-action="Create">Add new report</a>
 </div>

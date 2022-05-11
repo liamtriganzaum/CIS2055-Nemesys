@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CIS2055___Nemesys.Models.Documents
 {
@@ -10,8 +11,11 @@ namespace CIS2055___Nemesys.Models.Documents
         public const int RAND_MAX = 10;
         
         // report reference number
-        public string RRN{ get; set; }
-        public string DateAndTimeOfReport { get; set; }
+        [Key]
+        public int RRN { get; set; }
+        public DateTime DateAndTimeOfReport { get; set; }
+        
+        public string Title { get; set; }
         public string Location { get; set; }
         
         public  HazardType _hazardType;

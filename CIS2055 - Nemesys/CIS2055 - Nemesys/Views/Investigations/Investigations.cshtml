@@ -4,12 +4,21 @@
     ViewData["Title"] = "Investigation Page";
 }
 
-<div>
-    @foreach (var report in Model)
-    {
-        <div>
-            @* <h3>@report.DateAndTimeOfReport</h3> *@
-            
-        </div>
-    }
+<div class="investigation_container">
+    <ul class="investigation_list">
+
+        @foreach (var investigation in Model)
+        {
+            <li class="investigation_list_item">
+                <h3>@investigation.Title</h3>
+                <h3>@investigation._status</h3>
+                <h3>@investigation.Desc</h3>
+
+                <a asp-controller="Investigations" asp-action="Expand" asp-route-irn="@investigation.IRN">Expand</a>
+            </li>
+        }
+
+    </ul>
+
+    <a class="nav-link text-dark" asp-area="" asp-controller="Investigations" asp-action="Create">Add new investigation</a>
 </div>

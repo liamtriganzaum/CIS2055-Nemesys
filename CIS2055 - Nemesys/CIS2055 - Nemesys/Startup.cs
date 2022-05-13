@@ -63,6 +63,13 @@ namespace CIS2055___Nemesys
                     name: "default",
                     pattern: "{controller=Reports}/{action=Reports}/{id?}");
             });
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Investigations}/{action=Investigations}/{id?}");
+            });
         }
     }
 }

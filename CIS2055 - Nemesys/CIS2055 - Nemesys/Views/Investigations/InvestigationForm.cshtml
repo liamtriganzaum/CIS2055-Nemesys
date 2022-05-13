@@ -1,0 +1,31 @@
+﻿@model CIS2055___Nemesys.Models.Documents.Investigation
+@{
+    ViewData["Title"] = "Investigations";
+}
+@* <h1>@ViewData["Title"]</h1> *@
+
+<h2>Nemesys investigations</h2>
+
+@Html.BeginForm("AddNewInvestigation", "Investigations", FormMethod.Post) {
+    @Html.TextBoxFor(m => m.Desc, new {placeholder = "Description"});
+    @Html.TextBoxFor(m => m.Investigator_Email, new {placeholder = "Email"});
+    <input type="submit" value="Submit"/>
+}
+
+
+
+<form action="">
+       
+    <textarea rows="4">Description</textarea>
+    
+    <input name="location" type="email" placeholder="email">
+    
+    <select name="InvestigationStatus" id="InvestigationStatus">
+        <option value="Open">Open</option>
+        <option value="CLosed">CLosed</option>
+        <option value="BeingInvestigated">BeingInvestigated</option>
+        <option value="NoAction">NoAction</option>
+    </select>
+    
+    <input type="submit">
+</form>

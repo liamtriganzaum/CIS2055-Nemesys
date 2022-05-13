@@ -1,0 +1,11 @@
+@model CIS2055___Nemesys.ViewModels.InvestigationViewModel
+<h1>@Model.Title</h1>
+
+<div>
+    <p>@Model.DateOfAction</p>
+    <p>@Model._status</p>
+    <p>@Model.Desc</p>
+    
+    <a asp-controller="Investigations" asp-action="Edit" asp-route-irn="@Model.IRN">Edit investigation</a>
+</div>
+

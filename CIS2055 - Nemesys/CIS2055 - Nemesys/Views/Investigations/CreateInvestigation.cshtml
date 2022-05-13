@@ -1,0 +1,31 @@
+﻿@model CIS2055___Nemesys.ViewModels.EditInvestigationViewModel
+@{
+    ViewData["Title"] = "Investigations";
+}
+
+
+<h2>Nemesys investigations</h2>
+
+
+<form role="form" asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="form-part">
+        <input asp-for="Title" name="title" type="text" placeholder="title">
+    </div>
+    
+    <div class="form-part">
+        <textarea asp-for="Desc" name="Desc" rows="4">Description</textarea>
+    </div>
+    <div class="form-part">
+        <input asp-for="Investigator_Email" name="InvestigatorEmail" type="email" placeholder="email">
+    </div>
+    <div class="form-part">
+        <select asp-for="_status" name="status" id="InvestigationStatus"
+                asp-items="@Html.GetEnumSelectList(typeof(Status))">
+        </select>
+    </div>
+    
+    <div class="form-part">
+        <input type="submit" class="btn btn-primary">
+        <a asp-controller="Investigations" asp-action="Investigations" class="btn btn-outline-secondary">Back to Investigations</a>
+    </div>
+</form>

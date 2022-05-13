@@ -1,41 +1,48 @@
-using System.Runtime.InteropServices;
-
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using CIS2055___Nemesys.Models.Documents;
+using EntityState = Microsoft.EntityFrameworkCore.EntityState;
 
 namespace CIS2055___Nemesys.Models.Repositories
 {
     public class InvestigationsRepository
     {
-        private List<Investigation> _investigations;
+        private readonly AppDbContext _appDbContext;
 
-        public InvestigationsRepository()
+        public InvestigationsRepository(AppDbContext appDbContext)
         {
-            if (_investigations == null)
-            {
-                InitializeInvestigations();
-            }
-        }
-
-        private void InitializeInvestigations()
-        {
-            _investigations = new List<Investigation>()
-            {
-                new Investigation(description:"desctiption: ok",
-                           email:"email@mail.com",
-                           status:Status.Open),
-            };
+            _appDbContext = appDbContext;
         }
 
         // todo this method has to return IEnumerable<Report> 
         public IEnumerable<Investigation> GetAllInvestigations()
         {
-            return _investigations;
+            return _appDbContext.Investigations;
         }
 
-        public Investigation GetDocumentByRN(int IRN)
+        public void CreateInvestigation(Investigation investigation)
         {
-            return null;
+            _appDbContext.Reports.Add(investigation);
+            _appDbContext.SaveChanges();
+        }
+
+        public void UpdateInvestigation(Investigation investigation)
+        {
+            var existingInvestigation = _appDbContext.Investigations.SingleOrDefault(i => i.IRN == investigation.IRN);
+            if (existingInvestigation != null)
+            {
+                existingInvestigation.Title = investigation.Title;
+                existingInvestigation.Desc = investigation.Desc;
+                existingInvestigation._status = investigation._status;
+
+                _appDbContext.Entry(existingInvestigation).State = EntityState.Modified;
+                _appDbContext.SaveChanges();
+            }
+        }
+        public Investigation GetDocumentByRN(int irn)
+        {
+            return _appDbContext.Reports.FirstOrDefault(i => i.IRN == irn);
         }
     }
 }

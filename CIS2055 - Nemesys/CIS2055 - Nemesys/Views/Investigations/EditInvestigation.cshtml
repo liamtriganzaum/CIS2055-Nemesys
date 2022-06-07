@@ -12,9 +12,11 @@
     <div class="form-part">
         <textarea asp-for="Desc" name="Desc" rows="4">Description</textarea>
     </div>
+    
     <div class="form-part">
         <input asp-for="Investigator_Email" name="InvestigatorEmail" type="email" placeholder="email">
     </div>
+    
     <div class="form-part">
         <select asp-for="_status" name="status" id="InvestigationStatus"
                 asp-items="@Html.GetEnumSelectList(typeof(Status))">

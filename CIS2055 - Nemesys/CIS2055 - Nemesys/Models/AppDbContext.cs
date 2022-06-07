@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CIS2055___Nemesys.Models.Documents;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.Extensions.Identity;
+using Microsoft.Extensions.Identity.Core;
 
 namespace CIS2055___Nemesys.Models
 {
-    public class AppDbContext: DbContext
+    public class AppDbContext: IdentityDbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base (options)
         {
@@ -20,6 +22,8 @@ namespace CIS2055___Nemesys.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+            
             modelBuilder.Entity<Report>().HasData(
                 new Report()
                 {

@@ -5,26 +5,31 @@
 
 
 <form role="form" asp-action="Edit" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-part">
-        <input asp-for="Title" name="title" type="text" placeholder="title">
+        <input asp-for="RRN" type="hidden">
+    </div>
+    
+    <div class="form-part">
+        <input asp-for="Title" name="Title" type="text" placeholder="title">
     </div>
     <div class="form-part">
-        <input asp-for="Location" name="location" type="text" placeholder="location">
+        <input asp-for="Location" name="Location" type="text" placeholder="location">
     </div>
     
     <div class="form-part">
         <textarea asp-for="Desc" name="Desc" rows="4">Description</textarea>
     </div>
     <div class="form-part">
-        <input asp-for="Reporter_Email" name="ReporterEmail" type="email" placeholder="email">
+        <input asp-for="Reporter_Email" name="Reporter_Email" type="email" placeholder="email">
     </div>
     <div class="form-part">
-        <select asp-for="_hazardType" name="h_type" id="HazardType"
+        <select asp-for="_hazardType" name="_hazardType" id="HazardType"
                 asp-items="@Html.GetEnumSelectList(typeof(HazardType))">
         </select>
     </div>
     <div class="form-part">
-        <select asp-for="_status" name="status" id="ReportStatus"
+        <select asp-for="_status" name="_status" id="ReportStatus"
                 asp-items="@Html.GetEnumSelectList(typeof(Status))">
         </select>
     </div>

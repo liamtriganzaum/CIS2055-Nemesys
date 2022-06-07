@@ -1,6 +1,7 @@
 using System.Runtime.InteropServices;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CIS2055___Nemesys.Models.Documents
 {

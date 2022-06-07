@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using CIS2055___Nemesys.Models.Documents;
 using CIS2055___Nemesys.Models.Repositories;
 using CIS2055___Nemesys.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CIS2055___Nemesys.Controllers
 {
@@ -50,13 +51,15 @@ namespace CIS2055___Nemesys.Controllers
 
        
         [HttpGet]
+        [Authorize]
         public IActionResult Create()
         {
             return View();
         }
         
         [HttpPost]
-        public IActionResult Create([Bind("Title, Location, _hazardType, Desc, ReporterEmail, status")] EditReportViewModel newReport)
+        [Authorize]
+        public IActionResult Create([Bind("Title, Location, _hazardType, Desc, Reporter_Email, _status")] EditReportViewModel newReport)
         {
             if (ModelState.IsValid)
             {
@@ -98,6 +101,7 @@ namespace CIS2055___Nemesys.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Edit(int rrn)
         {
             var report = _reportsRepository.GetDocumentByRN(rrn);
@@ -118,11 +122,12 @@ namespace CIS2055___Nemesys.Controllers
             
             return RedirectToAction("Index");
         }
-
+        
         [HttpPost]
-        public IActionResult Edit([FromRoute] int rrn, [Bind("rrn, Title, Location, _hazardType, Desc, ReporterEmail, status")] EditReportViewModel ReportToUpdate)
+        [Authorize]
+        public IActionResult Edit([FromRoute] int rrn, [Bind("RRN, Title, Location, _hazardType, Desc, Reporter_Email, _status")] EditReportViewModel ReportToUpdate)
         {
-            var report = _reportsRepository.GetDocumentByRN(rrn);
+            var report = _reportsRepository.GetDocumentByRN(ReportToUpdate.RRN);
             if (report == null)
             {
                 return NotFound();

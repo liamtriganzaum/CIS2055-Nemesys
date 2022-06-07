@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 
 using CIS2055___Nemesys.Models;
 using CIS2055___Nemesys.Models.Repositories;
+using Microsoft.AspNetCore.Identity;
 
 namespace CIS2055___Nemesys
 {
@@ -37,6 +38,37 @@ namespace CIS2055___Nemesys
             // todo Ask Porter about these lines
             services.AddTransient<ReportsRepository, ReportsRepository>();
             services.AddTransient<InvestigationsRepository, InvestigationsRepository>();
+            
+            //Configure Identity framework core
+            services.AddDefaultIdentity<IdentityUser>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = true;
+                // password
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 1;
+
+                // lockout
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.AllowedForNewUsers = true;
+
+                // user settings.
+                options.User.AllowedUserNameCharacters =
+                    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+                options.User.RequireUniqueEmail = true;
+            }).AddEntityFrameworkStores<AppDbContext>();;
+            
+            // cookie setup
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+                options.SlidingExpiration = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,11 +89,14 @@ namespace CIS2055___Nemesys
             app.UseRouting();
             app.UseAuthorization();
 
+            app.UseAuthentication();
+            app.UseAuthorization();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Reports}/{action=Reports}/{id?}");
+                    pattern: "{controller=Reports}/{action=Reports}/{rrn?}");
             });
 
             app.UseEndpoints(endpoints =>
@@ -69,6 +104,8 @@ namespace CIS2055___Nemesys
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Investigations}/{action=Investigations}/{id?}");
+                // to resolve razor pages as well as controllers
+                endpoints.MapRazorPages();
             });
         }
     }

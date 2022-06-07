@@ -81,7 +81,7 @@ namespace CIS2055___Nemesys.Controllers
             var Model = new InvestigationViewModel()
             {
                 IRN = current_investigation.IRN,
-                Title = current_investigation.Title,,
+                Title = current_investigation.Title,
                 Desc = current_investigation.Desc,
                 DateOfAction = current_investigation.DateOfAction,
                 _status = current_investigation._status

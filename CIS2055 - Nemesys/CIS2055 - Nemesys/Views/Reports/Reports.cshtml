@@ -4,22 +4,25 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="reports_container">
-    <ul class="reports_list">
-        
-    @foreach (var report in Model)
+<a class="nav-link text-dark" asp-area="" asp-controller="Reports" asp-action="Create">Add new report</a>
+
+<table class="content-table">
+    <tr>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Location</th>
+        <th>Description</th>
+        <th></th>
+    </tr>
+    @foreach(var report in Model)
     {
-        <li class="reports_list_item">
-            <h3>@report.Title</h3>
-            <h3>@report._status</h3>
-            <h3>@report.Location</h3>
-            <h3>@report.Desc</h3>
-            
-            <a asp-controller="Reports" asp-action="Expand" asp-route-rrn="@report.RRN">Expand</a>
-        </li>
+        <tr>
+            <td>@report.Title</td>
+            <td>@report._status</td>
+            <td>@report.Location</td>
+            <td>@report.Desc</td>
+            <td><a asp-controller="Reports" asp-action="Expand" asp-route-rrn="@report.RRN">Expand</a></td>
+        </tr>
+
     }
-    
-    </ul>
-    
-    <a class="nav-link text-dark" asp-area="" asp-controller="Reports" asp-action="Create">Add new report</a>
-</div>
+</table>

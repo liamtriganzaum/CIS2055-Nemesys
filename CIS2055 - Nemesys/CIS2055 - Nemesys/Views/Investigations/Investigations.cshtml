@@ -4,21 +4,23 @@
     ViewData["Title"] = "Investigation Page";
 }
 
-<div class="investigation_container">
-    <ul class="investigation_list">
+<a class="nav-link text-dark" asp-area="" asp-controller="Investigations" asp-action="Create">Add new investigation</a>
 
-        @foreach (var investigation in Model)
-        {
-            <li class="investigation_list_item">
-                <h3>@investigation.Title</h3>
-                <h3>@investigation._status</h3>
-                <h3>@investigation.Desc</h3>
+<table class="content-table">
+    <tr>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Description</th>
+        <th></th>
+    </tr>
+    @foreach (var investigation in Model)
+    {
+        <tr>
+            <td>@investigation.Title</td>
+            <td>@investigation._status</td>
+            <td>@investigation.Desc</td>
+            <td><a asp-controller="Investigations" asp-action="Expand" asp-route-irn="@investigation.IRN">Expand</a></td>
+        </tr>
 
-                <a asp-controller="Investigations" asp-action="Expand" asp-route-irn="@investigation.IRN">Expand</a>
-            </li>
-        }
-
-    </ul>
-
-    <a class="nav-link text-dark" asp-area="" asp-controller="Investigations" asp-action="Create">Add new investigation</a>
-</div>
+    }
+</table>

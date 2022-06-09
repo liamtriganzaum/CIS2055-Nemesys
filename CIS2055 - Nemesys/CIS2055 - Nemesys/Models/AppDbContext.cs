@@ -19,6 +19,7 @@ namespace CIS2055___Nemesys.Models
         }
         
         public DbSet<Report> Reports { get; set; }
+        public DbSet<Investigation> Investigations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

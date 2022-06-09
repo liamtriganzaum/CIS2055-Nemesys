@@ -13,7 +13,10 @@ using Microsoft.EntityFrameworkCore;
 
 using CIS2055___Nemesys.Models;
 using CIS2055___Nemesys.Models.Repositories;
+
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using CIS2055___Nemesys.Services;
 
 namespace CIS2055___Nemesys
 {
@@ -34,10 +37,12 @@ namespace CIS2055___Nemesys
             // Database connection
             services.AddDbContext<AppDbContext>(options => 
                 options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
-                
-            // todo Ask Porter about these lines
+            
             services.AddTransient<ReportsRepository, ReportsRepository>();
             services.AddTransient<InvestigationsRepository, InvestigationsRepository>();
+
+
+            services.AddTransient<IEmailSender, EmailSender>();
             
             //Configure Identity framework core
             services.AddDefaultIdentity<IdentityUser>(options =>
@@ -52,7 +57,7 @@ namespace CIS2055___Nemesys
                 options.Password.RequiredUniqueChars = 1;
 
                 // lockout
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
                 options.Lockout.MaxFailedAccessAttempts = 5;
                 options.Lockout.AllowedForNewUsers = true;
 

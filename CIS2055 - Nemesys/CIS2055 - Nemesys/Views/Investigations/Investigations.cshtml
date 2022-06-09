@@ -7,20 +7,24 @@
 <a class="nav-link text-dark" asp-area="" asp-controller="Investigations" asp-action="Create">Add new investigation</a>
 
 <table class="content-table">
-    <tr>
-        <th>Title</th>
-        <th>Status</th>
-        <th>Description</th>
-        <th></th>
-    </tr>
-    @foreach (var investigation in Model)
-    {
+    <thead>
         <tr>
-            <td>@investigation.Title</td>
-            <td>@investigation._status</td>
-            <td>@investigation.Desc</td>
-            <td><a asp-controller="Investigations" asp-action="Expand" asp-route-irn="@investigation.IRN">Expand</a></td>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Description</th>
+            <th></th>
         </tr>
+    </thead>
+    <tbody>
+        @foreach (var investigation in Model)
+        {
+            <tr>
+                <td>@investigation.Title</td>
+                <td>@investigation._status</td>
+                <td>@investigation.Desc</td>
+                <td><a asp-controller="Investigations" asp-action="Expand" asp-route-irn="@investigation.IRN">Expand</a></td>
+            </tr>
 
-    }
+        }
+    </tbody>
 </table>
